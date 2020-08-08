@@ -1,0 +1,234 @@
+
+<Html>  
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">  
+	{% extends 'base.html' %} 
+	{% block body_block %}
+<title>  
+Registration Page  
+</title>  
+</head>  
+<body style="background-color: skyblue;">  
+{% if cid %}
+<h2>{{cid}} </h2>
+{% endif %}
+<h3><center><b>Registration Form </b></center></h3>
+<table class="table" border="2px">
+<form method="post" action="{%url 'index' %}" enctype="multipart/form-data">
+{% csrf_token %}
+<tr>
+<div class="form-group"> 
+<td>
+<label> Name </label>  
+</td>
+<td>       
+<input type="text" name="name" required />
+</div>
+</td>
+<div class="form-group">
+<td>
+<label>   
+Mobile No :  
+</label>
+</td>
+<td>  
+<input type="text" name="country code"  value="+91" size="2"/>   
+<input type="number" name="mobile" size="10" required/>
+</div>
+</td>
+</tr>
+<tr>
+<div class="form-group">
+<td> 
+<label>Birth Date </label>
+</td>
+<td>        
+<input type="Date" name="birth date" required/>
+</div>
+</td>
+<div class="form-group">
+<td>
+<label>
+Aadhar Card:
+</label>
+</td>
+<td>  
+<input type="number"  name="aadharcard" required/> <br> 
+</div>
+</td>
+</tr>
+<tr>  
+<div class="form-group">
+	<td>
+<label>
+Pan Card:
+</label>
+</td>
+<td>  
+<input type="text"  name="pan card"/> <br> 
+</div>
+</td>
+<div class="form-group">
+	<td>
+<label>   
+Gender :  
+</label><br>
+</td>
+<td>  
+<input type="radio" checked="true"  name="gender" value="male"/> Male   
+<input type="radio" name="gender" value="female"/> Female 
+<input type="radio" name="gender" value="other"/> Other  
+</div>
+</td></tr>
+<tr>
+<div class="form-group">
+	<td>
+	<label>
+Checkbook :
+</label><br>
+</td>
+<td>  
+<input type="radio"  checked="true" name="checkbook" value="yes" /> Yes  
+<input type="radio" name="checkbook" value="no" /> No   
+</div>  
+</td>
+ <div class="form-group"> 
+ 	<td>
+<label>Mother Name </label></td><td>         
+<input type="text" name="mother name" required/>
+</div>
+</td></tr><tr>
+ <div class="form-group">
+ <td> 
+<label>father Name </label>
+</td>
+<td>         
+<input type="text" name="father name" required/>
+</div>
+</td>
+<div class="form-group"> 
+	<td>
+<label>Nominee Name </label> 
+</td>
+<td>        
+<input type="text" name="nominee name" required/>
+</div>
+</td></tr><tr>
+<div class="form-group">
+	<td>
+<label>Address  </label> 
+</td>
+<td>
+<textarea name="address"value="address" required>  
+</textarea> 
+</div>
+</td> 
+<div class="form-group">
+<td> 
+<label>Spouse name </label></td><td>         
+<input type="text" name="spouse name"/>
+</div>
+</td></tr><tr>
+<div class="form-group">
+<td> 
+<label>Spouse Birth Date </label> </td><td>        
+<input type="Date" name="spouse birth date"/>
+</div>
+</td>
+<div class="form-group">
+<td> 
+<label>Distric </label></td><td>         
+<input type="text" name="distric" required/>
+</div>
+</td></tr><tr>
+<div class="form-group"> 
+	<td>
+<label>Married Status </label></td>
+<td>         
+<select name=married>
+	<option>Married</option>
+	<option>Unmarried </option>
+</select>
+</div>
+</td>
+<div class="form-group">
+<td> 
+<label>education </label> </td><td>        
+<input type="text" name="education"/>
+</div>
+</td></tr><tr>
+<div class="form-group">
+<td> 
+<label>Caste </label></td><td>         
+<select name="caste">
+	<option>Open</option>
+	<option>Obc</option>
+	<option>S.t</option>
+	<option>S.c</option>
+</select>
+</div>
+</td>
+<div class="form-group"> 
+	<td>
+<label>Annual Income </label>   
+</td>
+<td>      
+<input type="number" name="income" required />
+</div>
+</td></tr><tr>
+<div class="form-group">
+<td> 
+<label>Occupation </label> </td><td>        
+<input type="text" name="occupation"/>
+</div>
+</td>
+<div class="form-group"> 
+	<td>
+<label>place of birth </label> </td> 
+<td>       
+<input type="text" name="place of birth" />
+</div>
+</td></tr><tr>
+<div class="form-group">
+	<td>
+	<label> Income Category</label>
+</td>
+<td>
+	<input type="text" name="income category">
+</div>
+</td>
+<div class="form-group">
+<td> 
+<label>Nature of Barring </label>         </td><td>
+<input type="text" name="nature"/>
+</div>
+</td></tr><tr>
+	<td><label>Ammount</label></td><td><input type="number" name="ammount" id="t1" value="0" required></td>
+	<td><label>Interest Percentage </label></td><td><input type="number" id=
+	"t2" name="interest" onkeyup="iammount()"  required><h2 id="h2"></h2></td>
+</tr><tr>
+		<div class="form-group">
+			<td>
+			<label> Profile </label>
+		</td><td>
+			<input type="file" name="profile" required />
+	</div>
+</td>	
+	</tr>
+	<tr>
+		<td colspan="4" align="center">
+<input type="submit" value="Submit"/>  
+</td>
+</tr>
+</form> 
+</table> 
+</body>  
+<script type="text/javascript">
+	function iammount(){
+		var t1=document.getElementById("t1").value;
+		var t2=document.getElementById("t2").value;
+		document.getElementById("h2").innerHTML = (t1*(t2/100));
+	}
+</script>
+{% endblock %}
+</html>  

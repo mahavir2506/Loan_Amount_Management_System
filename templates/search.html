@@ -1,0 +1,54 @@
+<Html>  
+<head>
+	{% extends 'base.html' %}
+	}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
+	{% block body_block %}
+<title>  
+Registration Page  
+</title>  
+</head>  
+<body style="background-color: skyblue;">  
+{% if error %}
+<h2>{{error}}</h2>
+{% endif %}
+<table class="table">
+<form method="post" action="{%url 'search' %}">
+{% csrf_token %}
+<tr>
+	<td>
+	<label>Cid</label>
+	</td>
+	<td>
+		<input type="number" name="cid">
+	</td>
+	<td>
+		<input type="submit" value="search">
+	</td>
+	<td>
+	</td>
+	<td>
+	</td>
+</tr>
+</form>
+</table>
+<table class="table" border="2px">
+<tr>
+	<th><b>Name</b></th>
+	<th><b>Aadharcard</b></th>
+	<th><b>Ammount</b></th>
+	<th><b>Interest_Ammount</b></th>
+	<th><b>Interest_Date </b></th>
+</tr>
+{% for i in list%}
+<tr>
+	<td>{{i.name}}</td>
+	<td>{{i.aadharcard}}</td>
+	<td>{{i.ammount}}</td>
+	<td>{{i.interest_ammount}}</td>
+	<td>{{i.interest_date}}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+{% endblock %}

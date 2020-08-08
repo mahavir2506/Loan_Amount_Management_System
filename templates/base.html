@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+     
+        <meta name="google-site-verification" content="zV_0BS_JNj6t_u1_NAYBnPp_Hg2-mJS95xJYfmYQpbc" />
+
+        <title>VivekOwnBank</title>
+        <link href="{% static 'imgs/hello.png' %}" rel="icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">   
+	<style>@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic); body {font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;} .notice-txt{word-wrap:break-word;}</style>
+	<style>
+	#logo-small { 
+		display: none;
+	}
+	@media (max-width: 600px) {
+    #main-page-logo {
+		display: none;
+	}
+	.navbar-toggle {
+		margin-top: 18px
+	}
+	#logo-small { 
+		display: block;
+	}
+</style>
+
+    <script>
+        $(document).ready(function(){
+            $('.dropdown-toggle').click(function(){
+                $('.dropdown-menu').addClass('animated');
+            });
+            $('#myCarousel').on('slid.bs.carousel', function () {
+                $(".carousel-inner > .item.active").addClass("animated lightSpeedIn");
+            });
+            
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_DANGER,
+                        draggable: true,
+                        title: 'Important information',
+                        message: '<h5 style="line-height: 1.5; text-align: justify">This site is still in development and some of the features may not work correctly. Please provide your important feedback if you find something going wrong or something that you think we should improve.<br/><br/>Thank you for for giving your valuable time and testing this out. We hope you like it.<br/><br/>Feedback link: <a href="./feedback.php">http://14.114.139.146/feedback.php</a></h5>',
+                        buttons: [{
+                            label: 'Close',
+                            action: function (innerdialog) {
+                                innerdialog.close();
+                            }
+                        }]
+                    });        });
+    </script>
+    <nav class="navbar navbar-light bg-light"  style="background-color: #e3f2fd;">
+    <ul class="nav navbar-nav">
+       <li> <img src="{% static 'imgs/hello.png' %}" width="90" height="70" alt=""> </li>
+        <li><a href="#">VivekOwnBank </a></li>
+      <li><a href="{%url 'index' %}"><span class="glyphicon glyphicon-home"></span> <t><b>Home</b></a></li>
+      <li><a href="{%url 'search' %}"><span class="glyphicon glyphicon-search"></span> <t><b> Search</b></a></li>
+      <li><a href="{%url 'deposite' %}"> <span class="glyphicon glyphicon-minus"></span><t><b>Deposite</b></a></li>
+    <li><a href="{%url 'list'%}"><span class="glyphicon glyphicon-log-in"></span><t><b> List</b></a></li>
+    </ul>
+</nav>
+</head>
+<body>
+{% block body_block %}
+{% endblock %}
+</body>
+</html>
